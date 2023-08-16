@@ -1,18 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import { makeServer } from './server'
+import { makeServer } from "./server";
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./contexts/auth-context";
+import { UsersProvider } from "./contexts/users-context";
+import { PostsProvider } from "./contexts/posts-context";
 
 // Call make Server
-makeServer()
+makeServer();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <AuthProvider>
+        <UsersProvider>
+          <PostsProvider>
+            <App />
+          </PostsProvider>
+        </UsersProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
