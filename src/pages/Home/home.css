@@ -1,0 +1,17 @@
+.home-container {
+    min-height: 100vh;
+}
+
+.home-container .suggested-users {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 0.75fr;
+    }
+    .home-container .suggested-users {
+        display: block;
+    }
+}

@@ -1,0 +1,14 @@
+.explore-container h2{
+    margin: 2rem 0 2rem 2rem;
+}
+
+.explore-container .explore-suggested-users-container {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+}
+
+.explore-container .posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
