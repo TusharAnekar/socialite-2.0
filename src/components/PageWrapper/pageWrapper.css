@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+    .cont-1 {
+        display: grid;
+        grid-template-columns: 6rem 1fr;
+    }
+    .cont-1 div {
+        order: 1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .cont-1 {
+        grid-template-columns: 13rem 1fr;
+    }
+}

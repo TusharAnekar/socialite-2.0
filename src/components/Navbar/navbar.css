@@ -1,0 +1,41 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    position: sticky;
+    bottom: 0;
+}
+
+.navbar-container .icon-title {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2rem;
+    }
+    .navbar-container .add-icon {
+        order: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .navbar-container {
+        align-items: flex-start;
+    }
+
+    .navbar-container .icon-container {
+        display: flex;
+        gap: 0.5rem;
+        cursor: pointer;
+    }
+
+    .navbar-container .icon-title {
+        display: block
+    }
+}

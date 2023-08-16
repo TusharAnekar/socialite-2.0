@@ -1,0 +1,14 @@
+.suggested-users-container {
+    display: none;
+}
+
+.suggested-users-container h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .suggested-users-container {
+        display: block;
+    }
+}

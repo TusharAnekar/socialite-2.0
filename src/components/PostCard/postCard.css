@@ -1,0 +1,42 @@
+.post-card-container {
+    padding: 1rem;
+    display: flex;
+    margin: 1rem;
+    gap: 1rem;
+    width: 80vw;
+    max-width: 35rem;
+    border: 1px gray solid;
+    border-radius: 1rem;
+}
+
+.post-card-container .profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-card-container .user-details-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-card-container .content {
+    margin: 0.5rem 0;
+}
+
+.post-card-container .media-container {
+    margin: 1rem 0;
+}
+
+.post-card-container .media-container img, video {
+    width: 100%;
+}
+
+.post-card-container .icons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-card-container .bookmark-icon {
+    color: black;
+}

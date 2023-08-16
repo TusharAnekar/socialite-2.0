@@ -1,0 +1,24 @@
+.suggested-user-card-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.suggested-user-card-container .img-user-details-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.suggested-user-card-container img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.suggested-user-card-container .follow-button {
+    order: 1;
+    padding: 0.5rem 1rem;
+}
