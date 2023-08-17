@@ -45,7 +45,7 @@ export function AuthProvider ({children}) {
             localStorage.setItem("loginDetails", JSON.stringify({user: foundUser, token: encodedToken}))
             setToken(token)
             setCurrentUser(foundUser)
-            navigate("/")
+            navigate("/login")
         }
         } catch (error) {
             console.error(error)
