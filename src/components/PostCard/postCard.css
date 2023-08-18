@@ -37,6 +37,14 @@
     justify-content: space-between;
 }
 
-.post-card-container .bookmark-icon {
+.post-card-container .icons-container .bookmark-unFill-icon {
+    color: gray;
+}
+
+.post-card-container .icons-container .bookmark-icon {
     color: black;
+}
+
+.post-card-container .icons-container .favorite-fill-icon {
+    color: red;
 }

@@ -16,7 +16,6 @@ export function AuthProvider ({children}) {
     async function loginHandler ({username, password}) {
         try {
             const response = await loginAuthService(username, password)
-            console.log(response)
             const {
                 status,
                 data: { foundUser, encodedToken },

@@ -1,23 +1,49 @@
 import { useContext } from "react";
 import "./postCard.css";
 import { UsersContext } from "../../contexts/users-context";
-import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
+import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import dayjs from "dayjs";
+import { PostsContext } from "../../contexts/posts-context";
 
 export function PostCard({ post }) {
-  const {addToBookamarks, getIsPostInBookmarks} = useContext(UsersContext)
-  const {_id, content, mediaURL, likes: {likeCount}, username } = post;
+  const { addToBookamarks, removeFromBookamarks, getIsPostInBookmarks } =
+    useContext(UsersContext);
+  const {
+    _id,
+    content,
+    mediaURL,
+    likes: { likeCount },
+    username,
+    createdAt,
+  } = post;
   const {
     usersState: { allUsers },
   } = useContext(UsersContext);
+  const { likePostOfUser, dislikePostOfUser, getIsPostLiked } =
+    useContext(PostsContext);
   const postUser = allUsers.find((user) => user.username === username);
   const { firstName, lastName, profileAvatar } = postUser;
 
-  const isPostInBookmarks = getIsPostInBookmarks(_id)
+  const isPostInBookmarks = getIsPostInBookmarks(_id);
+  const isPostLiked = getIsPostLiked(_id);
 
-  function handleAddToBookmark () {
-    addToBookamarks(_id)
+  function handleAddToBookmark() {
+    if (isPostInBookmarks) {
+      removeFromBookamarks(_id);
+    } else {
+      addToBookamarks(_id);
+    }
+  }
+
+  function handleLike() {
+    if (isPostLiked) {
+      dislikePostOfUser(_id);
+    } else {
+      likePostOfUser(_id);
+    }
   }
 
   return (
@@ -25,13 +51,13 @@ export function PostCard({ post }) {
       <img src={profileAvatar} alt={firstName} className="profile-avatar" />
       <div>
         <div className="user-details-container">
-        <p>
-          <strong>
-            {firstName} {lastName}
-          </strong>{" "}
-          @{username}
-        </p>
-        <MoreHorizIcon/>
+          <p>
+            <strong>
+              {firstName} {lastName}
+            </strong>{" "}
+            @{username} {dayjs(createdAt).format("DD/MMM/YY")}
+          </p>
+          <MoreHorizIcon />
         </div>
         <p className="content">{content}</p>
         <div className="media-container">
@@ -45,9 +71,20 @@ export function PostCard({ post }) {
             ))}
         </div>
         <div className="icons-container">
-                <ModeCommentOutlinedIcon />
-                <div><FavoriteBorderIcon/> {likeCount}</div>
-                <BookmarkBorderIcon className={isPostInBookmarks && "bookmark-icon"} onClick={handleAddToBookmark}/>
+          <ModeCommentOutlinedIcon />
+          <div>
+            <FavoriteTwoToneIcon
+              className={isPostLiked ? "favorite-fill-icon" : ""}
+              onClick={handleLike}
+            />{" "}
+            {likeCount}
+          </div>
+          <BookmarkIcon
+            className={
+              isPostInBookmarks ? "bookmark-fill-icon" : "bookmark-unFill-icon"
+            }
+            onClick={handleAddToBookmark}
+          />
         </div>
       </div>
     </div>

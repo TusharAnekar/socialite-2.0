@@ -8,13 +8,16 @@ export function Explore() {
   const {
     postsState: { allPosts },
   } = useContext(PostsContext);
+
+  const latestFilteredPosts = [...allPosts]?.sort((a,b) => b?.createdAt?.localeCompare(a?.createdAt, 'en', { sensitivity: 'base' }))
+
   return (
     <div className="explore-container">
       <h2>Explore</h2>
       <div className="explore-suggested-users-container">
         <div className="posts-container">
-          {allPosts.map((post) => (
-            <PostCard post={post} />
+          {latestFilteredPosts?.map((post) => (
+            <PostCard post={post} key={post._id}/>
           ))}
         </div>
         <SuggestedUsers/>

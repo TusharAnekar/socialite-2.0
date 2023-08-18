@@ -25,7 +25,7 @@ export function SuggestedUsers() {
       <h3>Suggested Users</h3>
       <div className="suggested-users-cards-container">
         {
-            suggestedUsers?.map((suggestedUser) => <SuggestedUserCard suggestedUser={suggestedUser}/>)
+            suggestedUsers?.map((suggestedUser) => <SuggestedUserCard key={suggestedUser._id} suggestedUser={suggestedUser}/>)
         }
       </div>
     </div>
