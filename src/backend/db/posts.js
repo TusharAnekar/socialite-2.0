@@ -17,7 +17,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "tusharanekar",
-    createdAt: formatDate(),
+    createdAt: "2022-09-12T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -32,7 +32,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "tusharanekar",
-    createdAt: formatDate(),
+    createdAt: "2022-09-10T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -46,7 +46,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "jayeshraghuwanshi",
-    createdAt: formatDate(),
+    createdAt: "2022-09-11T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -60,7 +60,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "jayeshraghuwanshi",
-    createdAt: formatDate(),
+    createdAt: "2022-08-12T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -74,7 +74,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "sachinpachpute",
-    createdAt: formatDate(),
+    createdAt: "2022-08-19T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -88,7 +88,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "sachinpachpute",
-    createdAt: formatDate(),
+    createdAt: "2022-09-15T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -102,7 +102,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "sudhanshushiwarkar",
-    createdAt: formatDate(),
+    createdAt: "2023-08-12T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -116,7 +116,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "sudhanshushiwarkar",
-    createdAt: formatDate(),
+    createdAt: "2023-08-11T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -130,7 +130,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "prasadjamdade",
-    createdAt: formatDate(),
+    createdAt: "2022-10-12T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -144,7 +144,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "prasadjamdade",
-    createdAt: formatDate(),
+    createdAt: "2023-01-12T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -158,7 +158,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "sunilchhetri",
-    createdAt: formatDate(),
+    createdAt: "2023-02-15T15:52:00+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -172,7 +172,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "sunilchhetri",
-    createdAt: formatDate(),
+    createdAt: "2023-06-14T15:52:00+05:30",
     updatedAt: formatDate(),
   },
 ];
