@@ -6,7 +6,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
-    _id: 1,
+    _id: "1",
     firstName: "Tushar",
     lastName: "Anekar",
     username: "tusharanekar",
@@ -19,7 +19,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: 2,
+        _id: "2",
         firstName: "Jayesh",
         lastName: "Raghuwanshi",
         username: "jayeshraghuwanshi",
@@ -29,7 +29,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: 2,
+        _id: "2",
         firstName: "Jayesh",
         lastName: "Raghuwanshi",
         username: "jayeshraghuwanshi",
@@ -40,7 +40,7 @@ export const users = [
     bookmarks: [],
   },
   {
-    _id: 2,
+    _id: "2",
     firstName: "Jayesh",
     lastName: "Raghuwanshi",
     username: "jayeshraghuwanshi",
@@ -53,7 +53,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: 1,
+        _id: "1",
         firstName: "Tushar",
         lastName: "Anekar",
         username: "tusharanekar",
@@ -63,7 +63,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: 1,
+        _id: "1",
         firstName: "Tushar",
         lastName: "Anekar",
         username: "tusharanekar",
@@ -74,7 +74,7 @@ export const users = [
     bookmarks: [],
   },
   {
-    _id: 3,
+    _id: "3",
     firstName: "Sachin",
     lastName: "Pachpute",
     username: "sachinpachpute",
@@ -87,7 +87,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: 4,
+        _id: "4",
         firstName: "Sudhanshu",
         lastName: "Shiwarkar",
         username: "sudhanshushiwarkar",
@@ -97,7 +97,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: 4,
+        _id: "4",
         firstName: "Sudhanshu",
         lastName: "Shiwarkar",
         username: "sudhanshushiwarkar",
@@ -108,7 +108,7 @@ export const users = [
     bookmarks: [],
   },
   {
-    _id: 4,
+    _id: "4",
     firstName: "Sudhanshu",
     lastName: "Shiwarkar",
     username: "sudhanshushiwarkar",
@@ -121,7 +121,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: 3,
+        _id: "3",
         firstName: "Sachin",
         lastName: "Pachpute",
         profileAvatar:
@@ -130,7 +130,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: 3,
+        _id: "3",
         firstName: "Sachin",
         lastName: "Pachpute",
         profileAvatar:
@@ -140,7 +140,7 @@ export const users = [
     bookmarks: [],
   },
   {
-    _id: 5,
+    _id: "5",
     firstName: "Prasad",
     lastName: "Jamdade",
     username: "prasadjamdade",
@@ -153,7 +153,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: 6,
+        _id: "6",
         firstName: "Sunil",
         lastName: "Chhetri",
         username: "sunilchhetri",
@@ -163,7 +163,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: 6,
+        _id: "6",
         firstName: "Sunil",
         lastName: "Chhetri",
         username: "sunilchhetri",
@@ -174,7 +174,7 @@ export const users = [
     bookmarks: [],
   },
   {
-    _id: 6,
+    _id: "6",
     firstName: "Sunil",
     lastName: "Chhetri",
     username: "sunilchhetri",
@@ -187,7 +187,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: 5,
+        _id: "5",
         firstName: "Prasad",
         lastName: "Jamdade",
         username: "prasadjamdade",
@@ -197,7 +197,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: 5,
+        _id: "5",
         firstName: "Prasad",
         lastName: "Jamdade",
         username: "prasadjamdade",

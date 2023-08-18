@@ -7,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: 11,
+    _id: "11",
     content:
       "Day 1 of #100DaysOfCode ✅ES6 assignment done. ✅Peer Programming done. ✅Learned about inputs in React",
     mediaURL: "",
@@ -21,7 +21,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 12,
+    _id: "12",
     content:
       "Finally, better late than never. Completed my first React e-commerce web app dedicated to books! Kindly spread the word. Feedback & suggestions are highly appreciated!.",
     mediaURL:
@@ -36,7 +36,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 13,
+    _id: "13",
     content: "I am loving Seattle it is such a beautiful place to live.",
     mediaURL:
       "https://res.cloudinary.com/diuf6w2yi/image/upload/v1691126636/samples/landscapes/nature-mountains.jpg",
@@ -50,7 +50,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 14,
+    _id: "14",
     content: "I have learned the best things at Cognizant and Tushar Anekar is the best person that I know.",
     mediaURL:
       "",
@@ -64,7 +64,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 15,
+    _id: "15",
     content: "I am named after this cricketing legend.",
     mediaURL:
       "https://res.cloudinary.com/diuf6w2yi/image/upload/v1691220198/e16c3f75ffa72c645e030419e29871ab_fxualw.jpg",
@@ -78,7 +78,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 16,
+    _id: "16",
     content: "I love working at Godrej it is a reputated company and has a great work culture.",
     mediaURL:
       "",
@@ -92,7 +92,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 17,
+    _id: "17",
     content: "Elephants are such a majectic animals.",
     mediaURL:
       "https://res.cloudinary.com/diuf6w2yi/video/upload/v1691126644/samples/elephants.mp4",
@@ -106,7 +106,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 18,
+    _id: "18",
     content: "Music can be a best medicine if you devote to lyrics and notes.",
     mediaURL:
       "",
@@ -120,7 +120,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 19,
+    _id: "19",
     content: "Shoes are overated in western countries.",
     mediaURL:
       "https://res.cloudinary.com/diuf6w2yi/image/upload/v1691126651/samples/shoe.jpg",
@@ -134,7 +134,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 20,
+    _id: "20",
     content: "Testing is a game of patience and critical thinking. There is a reason it is called Quality Assurance.",
     mediaURL:
       "",
@@ -148,7 +148,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 21,
+    _id: "21",
     content: "Playing for the national team is the greatest honour a footballer can have.",
     mediaURL:
       "https://res.cloudinary.com/diuf6w2yi/image/upload/v1691222494/Untitled-design-95_onavpf.jpg",
@@ -162,7 +162,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: 22,
+    _id: "22",
     content: "I play for Bengaluru FC but I have a special place in my heart for Mumbai City FC.",
     mediaURL:
       "",
