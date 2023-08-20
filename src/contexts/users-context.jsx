@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   addPostToBookmarksService,
+  followUserService,
   getAllUserBookmarkedPostsService,
   getAllUsersService,
   removePostFromBookmarksService,
@@ -93,6 +94,25 @@ export function UsersProvider({ children }) {
   const getIsPostInBookmarks = (_id) =>
     usersState?.userBookmarks?.some((bookmarkPost) => bookmarkPost._id === _id);
 
+  async function followUser (followUserId) {
+    try {
+      const response = await followUserService(followUserId, token)
+      const {
+        status,
+        data: { user, followUser },
+      } = response;
+
+      console.log(user)
+      console.log(followUser)
+
+      if(status === 200) {
+        usersDisptach({type: "ADD_FOLLOWING_USER", payload: user})
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <UsersContext.Provider
       value={{
@@ -101,6 +121,7 @@ export function UsersProvider({ children }) {
         addToBookamarks,
         getIsPostInBookmarks,
         removeFromBookamarks,
+        followUser,
       }}
     >
       {children}

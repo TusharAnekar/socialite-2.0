@@ -24,3 +24,8 @@ export const removePostFromBookmarksService = async (postId, token) =>
       headers: { authorization: token },
     }
   );
+
+export const followUserService = async (followUserId, token) => await axios.post(`/api/users/follow/${followUserId}`, {},
+{
+  headers: { authorization: token },
+})
