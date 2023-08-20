@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import "./suggestedUserCard.css";
+import { UsersContext } from "../../contexts/users-context";
 export function SuggestedUserCard({ suggestedUser }) {
-  const { firstName, lastName, username, profileAvatar } = suggestedUser;
+  const {_id, firstName, lastName, username, profileAvatar } = suggestedUser;
+
+  const {followUser} = useContext(UsersContext)
+
+  function handleFollow () {
+    followUser(_id)
+  }
   return (
     <div className="suggested-user-card-container">
       <div className="img-user-details-container">
@@ -12,7 +20,7 @@ export function SuggestedUserCard({ suggestedUser }) {
           <p>@{username}</p>
         </div>
       </div>
-      <button className="follow-button">Follow</button>
+      <button className="follow-button" onClick={handleFollow}>Follow</button>
     </div>
   );
 }
