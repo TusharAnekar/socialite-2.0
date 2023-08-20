@@ -1,17 +1,58 @@
 .home-container {
-    min-height: 100vh;
+  min-height: 100vh;
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  gap: 1rem;
 }
 
-.home-container .suggested-users {
-    display: none;
+.home-container .post-filter-container {
+  width: 35rem;
+  margin: 0 auto;
 }
 
-@media (min-width: 1024px) {
-    .home-container {
-        display: grid;
-        grid-template-columns: 1fr 0.75fr;
-    }
-    .home-container .suggested-users {
-        display: block;
-    }
+.home-container .post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.home-container .post-container .post-textarea {
+  resize: none;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.home-container .post-container .post-button {
+  width: fit-content;
+  font-family: inherit;
+  font-size: 1.2rem;
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  color: whitesmoke;
+}
+
+.home-container .filters-container {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.home-container .filters-container .sort-button {
+  width: 50%;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+.home-container .filters-container .active-button {
+    background-color: var(--secondary-color);
+    color: whitesmoke;
 }
