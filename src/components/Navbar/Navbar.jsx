@@ -10,7 +10,7 @@ export function Navbar() {
   const navigate = useNavigate();
   return (
     <nav className="navbar-container">
-      <div className="icon-container" onClick={() => navigate("/home")}>
+      <div className="icon-container" onClick={() => navigate("/")}>
         <HomeIcon />
         <p className="icon-title">Home</p>
       </div>
