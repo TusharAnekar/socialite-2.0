@@ -10,23 +10,28 @@ export function SuggestedUsers() {
     usersState: { allUsers },
   } = useContext(UsersContext);
 
-  const userForSuggestedFollowers = allUsers.find(
+  const updatedCurrentUser = allUsers.find(
     ({ _id }) => _id === currentUser._id
   );
 
   const suggestedUsers = allUsers?.filter(
-    ({ _id }) =>
-      userForSuggestedFollowers?._id !== _id &&
-      userForSuggestedFollowers.following.some((item) => item._id !== _id)
+    (singleUser) =>
+      singleUser?.username !== updatedCurrentUser?.username &&
+      !updatedCurrentUser?.following?.some(
+        ({ username }) => username === singleUser?.username
+      )
   );
 
   return (
     <div className="suggested-users-container">
       <h3>Suggested Users</h3>
       <div className="suggested-users-cards-container">
-        {
-            suggestedUsers?.map((suggestedUser) => <SuggestedUserCard key={suggestedUser._id} suggestedUser={suggestedUser}/>)
-        }
+        {suggestedUsers?.map((suggestedUser) => (
+          <SuggestedUserCard
+            key={suggestedUser._id}
+            suggestedUser={suggestedUser}
+          />
+        ))}
       </div>
     </div>
   );
