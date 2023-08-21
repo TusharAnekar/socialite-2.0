@@ -13,13 +13,17 @@ export function Bookmarks() {
     postsState: { allPosts },
   } = useContext(PostsContext);
 
+  const updatedBookmarks = allPosts?.filter(
+    (post) =>
+      userBookmarks?.find(({ _id }) => _id === post?._id)?._id === post?._id
+  );
+
   return (
     <div className="bookmarks-container">
       <div className="bookmarks-posts-container">
-        {userBookmarks?.map((bookmarkPost) => {
-          const post = allPosts?.find(({ _id }) => _id === bookmarkPost?._id);
-          return <PostCard post={post} key={post?._id} />;
-        })}
+        {updatedBookmarks?.map((bookmarkPost) => (
+          <PostCard post={bookmarkPost} key={bookmarkPost?._id} />
+        ))}
       </div>
       <SuggestedUsers />
     </div>
