@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./home.css";
 import { AuthContext } from "../../contexts/auth-context";
 import { PostsContext } from "../../contexts/posts-context";
@@ -7,10 +7,12 @@ import { PostCard } from "../../components/PostCard/PostCard";
 import { SuggestedUsers } from "../../components/SuggestedUsers/SuggestedUsers";
 
 export function Home() {
+  const [newPost, setNewPost] = useState("");
   const { currentUser } = useContext(AuthContext);
   const {
     postsState: { allPosts, sortType },
     postsDispatch,
+    createPost,
   } = useContext(PostsContext);
   const {
     usersState: { allUsers },
@@ -42,6 +44,15 @@ export function Home() {
           (a, b) => b?.likes?.likeCount - a?.likes?.likeCount
         );
 
+  function handleTextarea(e) {
+    setNewPost(e.target.value);
+  }
+
+  function handlePost() {
+    createPost(newPost);
+    setNewPost("")
+  }
+
   return (
     <div className="home-container">
       <div className="post-filter-container">
@@ -50,19 +61,31 @@ export function Home() {
             rows="5"
             placeholder="Something on your mind..."
             className="post-textarea"
+            value={newPost}
+            onChange={handleTextarea}
           ></textarea>
-          <button className="post-button">Post</button>
+          <button className="post-button" onClick={handlePost}>
+            Post
+          </button>
         </div>
         <div className="filters-container">
           <button
-            className={sortType === "Latest" ? "sort-button active-button" : "sort-button"}
+            className={
+              sortType === "Latest"
+                ? "sort-button active-button"
+                : "sort-button"
+            }
             value={"Latest"}
             onClick={handleFilterType}
           >
             Latest
           </button>
           <button
-            className={sortType === "Trending" ? "sort-button active-button" : "sort-button"}
+            className={
+              sortType === "Trending"
+                ? "sort-button active-button"
+                : "sort-button"
+            }
             value={"Trending"}
             onClick={handleFilterType}
           >
@@ -71,7 +94,7 @@ export function Home() {
         </div>
         <div>
           {filteredUserFeedPosts?.map((post) => (
-            <PostCard post={post} />
+            <PostCard key={post._id} post={post} />
           ))}
         </div>
       </div>
