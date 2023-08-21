@@ -5,6 +5,7 @@ import { Signup } from "./pages/Signup/Signup";
 import { Home } from "./pages/Home/Home";
 import { PageWrapper } from "./components/PageWrapper/PageWrapper";
 import { Explore } from "./pages/Explore/Explore";
+import { Bookmarks } from "./pages/Bookmarks/Bookmarks";
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
           element={
             <PageWrapper>
               <Explore />
+            </PageWrapper>
+          }
+        ></Route>
+        <Route
+          path="/bookmark"
+          element={
+            <PageWrapper>
+              <Bookmarks />
             </PageWrapper>
           }
         ></Route>

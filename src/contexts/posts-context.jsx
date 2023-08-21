@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
+  createPostService,
   dislikePostOfUserService,
   getAllPostsService,
   likePostOfUserService,
@@ -69,6 +70,18 @@ export function PostsProvider({ children }) {
     }
   }
 
+  async function createPost (post) {
+    try {
+      const response = await createPostService(post, token)
+      const {status, data: {posts}} = response
+      if(status === 201) {
+        postsDispatch({ type: "ADD_NEW_POST", payload: posts });
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const getIsPostLiked = (_id) =>
     postsState?.allPosts?.filter((post) => post?._id === _id).some(({ likes: { likedBy } }) =>
     likedBy?.some(({ _id }) => _id === currentUser?._id)
@@ -82,6 +95,7 @@ export function PostsProvider({ children }) {
         likePostOfUser,
         dislikePostOfUser,
         getIsPostLiked,
+        createPost
       }}
     >
       {children}
