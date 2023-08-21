@@ -13,7 +13,6 @@ export function Explore() {
 
   return (
     <div className="explore-container">
-      <h2>Explore</h2>
       <div className="explore-suggested-users-container">
         <div className="posts-container">
           {latestFilteredPosts?.map((post) => (
