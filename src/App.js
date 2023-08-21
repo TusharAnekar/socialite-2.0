@@ -6,6 +6,7 @@ import { Home } from "./pages/Home/Home";
 import { PageWrapper } from "./components/PageWrapper/PageWrapper";
 import { Explore } from "./pages/Explore/Explore";
 import { Bookmarks } from "./pages/Bookmarks/Bookmarks";
+import { RequiresAuth } from "./components/RequiresAuth";
 
 function App() {
   return (
@@ -16,25 +17,31 @@ function App() {
         <Route
           path="/"
           element={
-            <PageWrapper>
-              <Home />
-            </PageWrapper>
+            <RequiresAuth>
+              <PageWrapper>
+                <Home />
+              </PageWrapper>
+            </RequiresAuth>
           }
         ></Route>
         <Route
           path="/explore"
           element={
-            <PageWrapper>
-              <Explore />
-            </PageWrapper>
+            <RequiresAuth>
+              <PageWrapper>
+                <Explore />
+              </PageWrapper>
+            </RequiresAuth>
           }
         ></Route>
         <Route
           path="/bookmark"
           element={
-            <PageWrapper>
-              <Bookmarks />
-            </PageWrapper>
+            <RequiresAuth>
+              <PageWrapper>
+                <Bookmarks />
+              </PageWrapper>
+            </RequiresAuth>
           }
         ></Route>
       </Routes>

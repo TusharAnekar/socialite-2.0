@@ -6,10 +6,12 @@ export const AuthContext = createContext()
 
 export function AuthProvider ({children}) {
 
-    const localStorageUser = JSON.parse(localStorage.getItem("loginDetails")) 
+    const localStorageUser = JSON.parse(localStorage.getItem("loginDetails"))
+    const localIsLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"))
 
     const [token, setToken] = useState(localStorageUser?.token)
     const [currentUser, setCurrentUser] = useState(localStorageUser?.user)
+    const [isLoggedIn, setIsLoggedIn] = useState(localIsLoggedIn ?? false)
 
     const navigate = useNavigate()
 
@@ -24,8 +26,10 @@ export function AuthProvider ({children}) {
 
               if(status === 200) {
                 localStorage.setItem("loginDetails", JSON.stringify({user: foundUser, token: encodedToken}))
+                localStorage.setItem("isLoggedIn", JSON.stringify(true))
                 setToken(encodedToken)
                 setCurrentUser(foundUser)
+                setIsLoggedIn(true)
                 navigate("/")
               }
         } catch (error) {
@@ -52,7 +56,7 @@ export function AuthProvider ({children}) {
     }
 
     return(
-        <AuthContext.Provider value={{loginHandler, signupHandler, token, currentUser}}>
+        <AuthContext.Provider value={{loginHandler, signupHandler, token, currentUser, isLoggedIn}}>
             {children}
         </AuthContext.Provider>
     )
