@@ -74,6 +74,7 @@ export function PostsProvider({ children }) {
     try {
       const response = await createPostService(post, token)
       const {status, data: {posts}} = response
+      console.log(posts)
       if(status === 201) {
         postsDispatch({ type: "ADD_NEW_POST", payload: posts });
       }

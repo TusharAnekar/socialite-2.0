@@ -20,11 +20,11 @@ export const dislikePostOfUserService = async (postId, token) =>
     }
   );
 
-export const createPostService = async (postData, token) =>
+export const createPostService = async (post, token) =>
   await axios.post(
     "/api/posts",
     {
-      postData
+      postData: { content: post },
     },
     {
       headers: { authorization: token },

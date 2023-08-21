@@ -9,6 +9,10 @@
     border-radius: 1rem;
 }
 
+.post-card-container .user-details-post-container {
+    width: 100%;
+}
+
 .post-card-container .profile-avatar {
     width: 40px;
     height: 40px;

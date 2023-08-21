@@ -49,7 +49,7 @@ export function PostCard({ post }) {
   return (
     <div className="post-card-container">
       <img src={profileAvatar} alt={firstName} className="profile-avatar" />
-      <div>
+      <div className="user-details-post-container">
         <div className="user-details-container">
           <p>
             <strong>
