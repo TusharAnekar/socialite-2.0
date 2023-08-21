@@ -1,0 +1,16 @@
+.bookmarks-container {
+  padding: 1rem;
+}
+
+.bookmarks-container .bookmarks-posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .bookmarks-container {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+  }
+}
