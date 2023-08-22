@@ -25,7 +25,31 @@ export const removePostFromBookmarksService = async (postId, token) =>
     }
   );
 
-export const followUserService = async (followUserId, token) => await axios.post(`/api/users/follow/${followUserId}`, {},
-{
-  headers: { authorization: token },
-})
+export const followUserService = async (followUserId, token) =>
+  await axios.post(
+    `/api/users/follow/${followUserId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+
+export const unfollowUserService = async (followUserId, token) =>
+  await axios.post(
+    `/api/users/unfollow/${followUserId}`,
+    {},
+    {
+      headers: { authorization: token },
+    }
+  );
+
+export const editUserDetailsService = async (userData, token) =>
+  await axios.post(
+    "/api/users/edit",
+    {
+      userData
+    },
+    {
+      headers: { authorization: token },
+    }
+  );
