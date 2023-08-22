@@ -1,0 +1,44 @@
+.edit-user-modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 80%;
+    max-width: 35rem;
+}
+
+.edit-user-modal-container .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.edit-user-modal-container .form-container .bio-textarea {
+    display: block;
+    resize: none;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.edit-user-modal-container .form-container .input {
+    padding: 0.5rem;
+    font-family: inherit;
+    width: 100%;
+}
+
+.edit-user-modal-container .form-container .update-button {
+    padding: 0.5rem;
+    font-family: inherit;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.edit-user-modal-container .form-container .cancel-button {
+    padding: 0.5rem;
+    font-family: inherit;
+    border: 1px solid red;
+    color: red;
+}

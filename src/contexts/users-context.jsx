@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   addPostToBookmarksService,
+  editUserDetailsService,
   followUserService,
   getAllUserBookmarkedPostsService,
   getAllUsersService,
   removePostFromBookmarksService,
+  unfollowUserService,
 } from "../services/users-services";
 import { initialUsersState, usersReducer } from "../reducers/users-reducer";
 import { AuthContext } from "./auth-context";
@@ -64,10 +66,12 @@ export function UsersProvider({ children }) {
         status,
         data: { bookmarks },
       } = response;
-      
 
-      if(status === 200) {
-        usersDisptach({type: "ADD_POST_TO_USER_BOOKMARKS", payload: bookmarks})
+      if (status === 200) {
+        usersDisptach({
+          type: "ADD_POST_TO_USER_BOOKMARKS",
+          payload: bookmarks,
+        });
       }
     } catch (error) {
       console.log(error);
@@ -82,34 +86,66 @@ export function UsersProvider({ children }) {
         data: { bookmarks },
       } = response;
 
-     
-      if(status === 200) {
-        usersDisptach({type: "REMOVE_POST_FROM_USER_BOOKMARKS", payload: bookmarks})
+      if (status === 200) {
+        usersDisptach({
+          type: "REMOVE_POST_FROM_USER_BOOKMARKS",
+          payload: bookmarks,
+        });
       }
     } catch (error) {
       console.log(error);
     }
-  }  
+  }
 
   const getIsPostInBookmarks = (_id) =>
     usersState?.userBookmarks?.some((bookmarkPost) => bookmarkPost._id === _id);
 
-  async function followUser (followUserId) {
+  async function followUser(followUserId) {
     try {
-      const response = await followUserService(followUserId, token)
+      const response = await followUserService(followUserId, token);
       const {
         status,
         data: { user, followUser },
       } = response;
 
-      console.log(user)
-      console.log(followUser)
-
-      if(status === 200) {
-        usersDisptach({type: "ADD_FOLLOWING_USER", payload: user})
+      if (status === 200) {
+        usersDisptach({ type: "UPDATE_FOLLOWING_USER", payload: user });
+        usersDisptach({ type: "UPDATE_FOLLOWERS_USER", payload: followUser });
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
+    }
+  }
+
+  async function unFollowUser(unfollowUserId) {
+    try {
+      const response = await unfollowUserService(unfollowUserId, token);
+      const {
+        status,
+        data: { user, followUser },
+      } = response;
+      if (status === 200) {
+        usersDisptach({ type: "UPDATE_FOLLOWING_USER", payload: user });
+        usersDisptach({ type: "UPDATE_FOLLOWERS_USER", payload: followUser });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function editUserDetails(userProfileDetails) {
+    try {
+      const response = await editUserDetailsService(userProfileDetails, token);
+
+      const {
+        status,
+        data: { user },
+      } = response;
+      if (status === 201) {
+        usersDisptach({ type: "SET_EDITED_USER", payload: user });
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -122,6 +158,8 @@ export function UsersProvider({ children }) {
         getIsPostInBookmarks,
         removeFromBookamarks,
         followUser,
+        unFollowUser,
+        editUserDetails,
       }}
     >
       {children}
