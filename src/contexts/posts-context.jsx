@@ -9,6 +9,7 @@ import {
 } from "../services/posts-services";
 import { initialPostsState, postsReducer } from "../reducers/posts-reducer";
 import { AuthContext } from "./auth-context";
+import { toast } from "react-toastify";
 
 export const PostsContext = createContext();
 
@@ -79,6 +80,7 @@ export function PostsProvider({ children }) {
 
       if(status === 201) {
         postsDispatch({ type: "ADD_NEW_POST", payload: posts });
+        toast.success("Post created successfully.")
       }
     } catch (error) {
       console.error(error)
@@ -91,6 +93,7 @@ export function PostsProvider({ children }) {
       const {status, data: {posts}} = response
       if(status === 201) {
         postsDispatch({ type: "SET_ALL_POSTS", payload: posts });
+        toast.error("Deleted post successfully.")
       }
     } catch (error) {
       console.log(error)
@@ -103,6 +106,7 @@ export function PostsProvider({ children }) {
       const {status, data: {posts}} = response
       if(status === 201) {
         postsDispatch({ type: "SET_ALL_POSTS", payload: posts });
+        toast.success("Edited post successfully.")
       }
     } catch (error) {
       console.log(error)

@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { loginAuthService, signupAuthService } from "../services/auth-services";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -31,10 +32,21 @@ export function AuthProvider({ children }) {
         setToken(encodedToken);
         setCurrentUser(foundUser);
         setIsLoggedIn(true);
+        toast.success("Logged in succuessfully.")
         navigate("/");
       }
     } catch (error) {
-      console.error(error);
+      const {
+        response: { status },
+      } = error;
+      if (status === 401) {
+        toast.error("Invalid password! Please try again!");
+      } else if (status === 404) {
+        toast.error("Credentials not found! Please signup before logging in!");
+      } else {
+        console.error(error);
+        toast.error("Unable to sign in!");
+      }
     }
   }
 
@@ -58,14 +70,26 @@ export function AuthProvider({ children }) {
         );
         setToken(token);
         setCurrentUser(foundUser);
+        toast.success("Signed up successfully.")
         navigate("/login");
       }
     } catch (error) {
-      console.error(error);
+      const {
+        response: { status },
+      } = error;
+      if (status === 422) {
+        toast.error(
+          "Username already exists! Please try signing up with another username!"
+        );
+      } else {
+        console.error(error);
+        toast.error("Unable to sign up!");
+      }
     }
   }
 
   function logoutUser() {
+    toast.error("Logged out successfully.")
     setToken(null);
     setCurrentUser(null);
     setIsLoggedIn(false);

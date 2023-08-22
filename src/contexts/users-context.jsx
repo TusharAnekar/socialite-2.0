@@ -10,6 +10,7 @@ import {
 } from "../services/users-services";
 import { initialUsersState, usersReducer } from "../reducers/users-reducer";
 import { AuthContext } from "./auth-context";
+import { toast } from "react-toastify";
 
 export const UsersContext = createContext();
 
@@ -72,6 +73,7 @@ export function UsersProvider({ children }) {
           type: "ADD_POST_TO_USER_BOOKMARKS",
           payload: bookmarks,
         });
+        toast.success("Post added bookmarks.")
       }
     } catch (error) {
       console.log(error);
@@ -91,6 +93,7 @@ export function UsersProvider({ children }) {
           type: "REMOVE_POST_FROM_USER_BOOKMARKS",
           payload: bookmarks,
         });
+        toast.error("Post removed from bookmarks.")
       }
     } catch (error) {
       console.log(error);
@@ -111,6 +114,7 @@ export function UsersProvider({ children }) {
       if (status === 200) {
         usersDisptach({ type: "UPDATE_FOLLOWING_USER", payload: user });
         usersDisptach({ type: "UPDATE_FOLLOWERS_USER", payload: followUser });
+        toast.success(`You started following ${followUser?.username}`)
       }
     } catch (error) {
       console.error(error);
@@ -127,6 +131,7 @@ export function UsersProvider({ children }) {
       if (status === 200) {
         usersDisptach({ type: "UPDATE_FOLLOWING_USER", payload: user });
         usersDisptach({ type: "UPDATE_FOLLOWERS_USER", payload: followUser });
+        toast.error(`You unfollowed ${followUser?.username}`)
       }
     } catch (error) {
       console.log(error);
@@ -143,6 +148,7 @@ export function UsersProvider({ children }) {
       } = response;
       if (status === 201) {
         usersDisptach({ type: "SET_EDITED_USER", payload: user });
+        toast.success("User details updated successfully")
       }
     } catch (error) {
       console.log(error);
