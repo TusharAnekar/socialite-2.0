@@ -27,7 +27,7 @@ export function PostCard({ post }) {
   const {
     usersState: { allUsers }, unFollowUser, followUser
   } = useContext(UsersContext);
-  const { likePostOfUser, dislikePostOfUser, getIsPostLiked, deletePost } =
+  const { likePostOfUser, dislikePostOfUser, getIsPostLiked, deletePost, postsDispatch } =
     useContext(PostsContext);
   const postUser = allUsers.find((user) => user.username === username);
   const { firstName, lastName, profileAvatar } = postUser;
@@ -81,6 +81,12 @@ export function PostCard({ post }) {
     setShowOptionsModal(false)
   }
 
+  function handleEdit () {
+    postsDispatch({type: "SET_IS_SHOW_POST_MODAL", payload: true})
+    postsDispatch({type: "POST_TO_BE_EDITED", payload: post})
+    setShowOptionsModal(false)
+  }
+
   return (
     <div className="post-card-container">
       <img
@@ -103,7 +109,7 @@ export function PostCard({ post }) {
               {isPostOfCurrentUser ? (
                 <div className="edit-delete-container">
                   <button onClick={handleDelete}>Delete</button>
-                  <button>Edit</button>
+                  <button onClick={handleEdit}>Edit</button>
                 </div>
               ) : isUpdatedCurrentUserFollowingPostUser ? (
                 <div>

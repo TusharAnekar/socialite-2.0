@@ -8,8 +8,12 @@ import { Explore } from "./pages/Explore/Explore";
 import { Bookmarks } from "./pages/Bookmarks/Bookmarks";
 import { RequiresAuth } from "./components/RequiresAuth";
 import { Profile } from "./pages/Profile/Profile";
+import { PostModal } from "./components/PostModal/PostModal";
+import { useContext } from "react";
+import { PostsContext } from "./contexts/posts-context";
 
 function App() {
+  const {postsState: {isShowPostModal}} = useContext(PostsContext)
   return (
     <div className="App">
       <Routes>
@@ -56,6 +60,7 @@ function App() {
           }
         ></Route>
       </Routes>
+      {isShowPostModal && <PostModal />}
     </div>
   );
 }
