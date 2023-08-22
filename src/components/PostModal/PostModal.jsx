@@ -28,6 +28,13 @@ export function PostModal() {
     postsDispatch({ type: "SET_IS_SHOW_POST_MODAL", payload: false });
   }
 
+  function handleCancel(e) {
+    e.preventDefault();
+    setPost("");
+    postsDispatch({ type: "POST_TO_BE_EDITED", payload: {} });
+    postsDispatch({ type: "SET_IS_SHOW_POST_MODAL", payload: false });
+  }
+
   return (
     <div className="post-modal-container">
       <form onSubmit={handleSubmit} className="form-container">
@@ -40,9 +47,14 @@ export function PostModal() {
           className="textarea"
           onChange={handleInput}
         ></textarea>
-        <button type="submit" className="submit-button">
-          Post
-        </button>
+        <div className="submit-button-container">
+          <button className="cancel-button" onClick={handleCancel}>
+            Cancel
+          </button>
+          <button type="submit" className="submit-button">
+            {postToBeEdited?._id ? "Update" : "Post"}
+          </button>
+        </div>
       </form>
     </div>
   );

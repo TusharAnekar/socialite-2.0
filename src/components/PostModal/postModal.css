@@ -23,11 +23,24 @@
     resize: none;
 }
 
-.post-modal-container .form-container .submit-button {
+.post-modal-container .form-container .submit-button-container {
     align-self: flex-end;
+    display: flex;
+    gap: 1rem;
+}
+
+.post-modal-container .form-container .submit-button {
     padding: 0.5rem 1rem;
     font-family: inherit;
     font-size: inherit;
     background-color: var(--secondary-color);
     color: white;
+}
+
+.post-modal-container .form-container .cancel-button {
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid red;
+    color: red;
 }
