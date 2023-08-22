@@ -34,7 +34,7 @@ export function EditUserModal({ userProfile }) {
           <input
             type="url"
             name="profileAvatar"
-            value={profileAvatar}
+            defaultValue={profileAvatar}
             required
             className="input"
             onChange={handleInput}
@@ -45,7 +45,7 @@ export function EditUserModal({ userProfile }) {
           <input
             type="text"
             name="firstName"
-            value={firstName}
+            defaultValue={firstName}
             required
             className="input"
             onChange={handleInput}
@@ -56,7 +56,7 @@ export function EditUserModal({ userProfile }) {
           <input
             type="text"
             name="lastName"
-            value={userProfileDetails?.newLastName}
+            defaultValue={lastName}
             required
             className="input"
             onChange={handleInput}
@@ -70,7 +70,7 @@ export function EditUserModal({ userProfile }) {
             name="bio"
             cols="30"
             rows="5"
-            value={userProfileDetails.newBio}
+            defaultValue={bio}
             required
             onChange={handleInput}
           ></textarea>
@@ -81,7 +81,7 @@ export function EditUserModal({ userProfile }) {
           <input
             type="url"
             name="website"
-            value={userProfileDetails.newWebsite}
+            defaultValue={website}
             required
             className="input"
             onChange={handleInput}
