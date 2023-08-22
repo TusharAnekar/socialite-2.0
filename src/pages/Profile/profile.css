@@ -9,6 +9,8 @@
 .profile-container .profile-details-container {
     margin: 0 auto;
     max-width: 35rem;
+    height: 100vh;
+  overflow-y: scroll;
 }
 
 .profile-container .image-buttons-container {

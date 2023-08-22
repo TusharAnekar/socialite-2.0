@@ -7,6 +7,7 @@ import { PageWrapper } from "./components/PageWrapper/PageWrapper";
 import { Explore } from "./pages/Explore/Explore";
 import { Bookmarks } from "./pages/Bookmarks/Bookmarks";
 import { RequiresAuth } from "./components/RequiresAuth";
+import { Profile } from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -40,6 +41,16 @@ function App() {
             <RequiresAuth>
               <PageWrapper>
                 <Bookmarks />
+              </PageWrapper>
+            </RequiresAuth>
+          }
+        ></Route>
+        <Route
+          path="/profile/:profileId"
+          element={
+            <RequiresAuth>
+              <PageWrapper>
+                <Profile />
               </PageWrapper>
             </RequiresAuth>
           }

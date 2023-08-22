@@ -23,11 +23,7 @@ export function Header() {
       <h1>Socialite</h1>
       <div>
         <input type="text" placeholder="Search users" onChange={handleInput} />
-        <div>
-          {searchedUsers.map(({ username }) => (
-            <p>{username}</p>
-          ))}
-        </div>
+      
       </div>
     </header>
   );

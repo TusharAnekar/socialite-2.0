@@ -17,6 +17,8 @@
         justify-content: flex-start;
         align-items: center;
         gap: 2rem;
+        position: unset;
+        min-height: 100vh;
     }
     .navbar-container .add-icon {
         order: 2;

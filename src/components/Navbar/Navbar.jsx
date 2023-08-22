@@ -5,9 +5,12 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth-context";
 
 export function Navbar() {
   const navigate = useNavigate();
+  const {currentUser: {_id}} = useContext(AuthContext)
   return (
     <nav className="navbar-container">
       <div className="icon-container" onClick={() => navigate("/")}>
@@ -26,7 +29,7 @@ export function Navbar() {
         <BookmarkIcon />
         <p className="icon-title">Bookmark</p>
       </div>
-      <div className="icon-container" onClick={() => navigate("/profile")}>
+      <div className="icon-container" onClick={() => navigate(`/profile/${_id}`)}>
         <AccountCircleIcon />
         <p className="icon-title">Profile</p>
       </div>
