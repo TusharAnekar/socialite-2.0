@@ -3,10 +3,11 @@
     margin-bottom: 1rem;
     display: flex;
     gap: 1rem;
-    width: 80vw;
+    width: 100%;
     max-width: 35rem;
     border: 1px gray solid;
     border-radius: 1rem;
+    position: relative;
 }
 
 .post-card-container .user-details-post-container {
@@ -22,6 +23,27 @@
 .post-card-container .user-details-container {
     display: flex;
     justify-content: space-between;
+}
+
+.post-card-container .options-buttons-container {
+    position: absolute;
+    top: 2.5rem ;
+    right: 0;
+    background-color: var(--secondary-color);
+}
+
+.post-card-container .options-buttons-container .edit-delete-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.post-card-container .options-buttons-container button{
+    background-color: var(--secondary-color);
+    color: white;
+    font-family: inherit;
+    border-radius: 0.1rem;
+    padding: 0.2rem;
 }
 
 .post-card-container .content {

@@ -30,3 +30,7 @@ export const createPostService = async (post, token) =>
       headers: { authorization: token },
     }
   );
+
+export const deletePostService = async (postId, token) => await axios.delete(`/api/posts/${postId}`, {
+  headers: { authorization: token },
+})

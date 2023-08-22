@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./postCard.css";
 import { UsersContext } from "../../contexts/users-context";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
@@ -7,8 +7,13 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import dayjs from "dayjs";
 import { PostsContext } from "../../contexts/posts-context";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/auth-context";
 
 export function PostCard({ post }) {
+  const [showOptionsModal, setShowOptionsModal] = useState(false);
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const { addToBookamarks, removeFromBookamarks, getIsPostInBookmarks } =
     useContext(UsersContext);
   const {
@@ -20,15 +25,26 @@ export function PostCard({ post }) {
     createdAt,
   } = post;
   const {
-    usersState: { allUsers },
+    usersState: { allUsers }, unFollowUser, followUser
   } = useContext(UsersContext);
-  const { likePostOfUser, dislikePostOfUser, getIsPostLiked } =
+  const { likePostOfUser, dislikePostOfUser, getIsPostLiked, deletePost } =
     useContext(PostsContext);
   const postUser = allUsers.find((user) => user.username === username);
   const { firstName, lastName, profileAvatar } = postUser;
 
   const isPostInBookmarks = getIsPostInBookmarks(_id);
   const isPostLiked = getIsPostLiked(_id);
+
+  const isPostOfCurrentUser = username === currentUser?.username;
+
+  const updatedCurrentUser = allUsers.find(
+    (user) => user.username === currentUser?.username
+  );
+
+  const isUpdatedCurrentUserFollowingPostUser =
+    updatedCurrentUser?.following?.some(
+      (followingUser) => followingUser?.username === postUser?.username
+    );
 
   function handleAddToBookmark() {
     if (isPostInBookmarks) {
@@ -46,9 +62,33 @@ export function PostCard({ post }) {
     }
   }
 
+  function handleShowOptions() {
+    setShowOptionsModal(!showOptionsModal);
+  }
+
+  function handleDelete() {
+    deletePost(_id);
+    setShowOptionsModal(false)
+  }
+
+  function handleUnfollow () {
+    unFollowUser(postUser?._id)
+    setShowOptionsModal(false)
+  }
+
+  function handleFollow () {
+    followUser(postUser?._id)
+    setShowOptionsModal(false)
+  }
+
   return (
     <div className="post-card-container">
-      <img src={profileAvatar} alt={firstName} className="profile-avatar" />
+      <img
+        src={profileAvatar}
+        alt={firstName}
+        className="profile-avatar"
+        onClick={() => navigate(`/profile/${postUser._id}`)}
+      />
       <div className="user-details-post-container">
         <div className="user-details-container">
           <p>
@@ -57,7 +97,25 @@ export function PostCard({ post }) {
             </strong>{" "}
             @{username} {dayjs(createdAt).format("DD/MMM/YY")}
           </p>
-          <MoreHorizIcon />
+          <MoreHorizIcon onClick={handleShowOptions} />
+          {showOptionsModal && (
+            <div className="options-buttons-container">
+              {isPostOfCurrentUser ? (
+                <div className="edit-delete-container">
+                  <button onClick={handleDelete}>Delete</button>
+                  <button>Edit</button>
+                </div>
+              ) : isUpdatedCurrentUserFollowingPostUser ? (
+                <div>
+                  <button onClick={handleUnfollow}>Unfollow</button>
+                </div>
+              ) : (
+                <div>
+                  <button onClick={handleFollow}>Follow</button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
         <p className="content">{content}</p>
         <div className="media-container">
