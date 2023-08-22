@@ -12,7 +12,10 @@ export function Profile() {
   const { profileId } = useParams();
   const { currentUser, logoutUser } = useContext(AuthContext);
   const {
-    usersState: { allUsers, isEditUserModal }, unFollowUser, followUser, usersDisptach
+    usersState: { allUsers, isEditUserModal },
+    unFollowUser,
+    followUser,
+    usersDisptach,
   } = useContext(UsersContext);
   const {
     postsState: { allPosts },
@@ -42,39 +45,46 @@ export function Profile() {
     (followingUser) => followingUser?._id === userProfile?._id
   );
 
-  function handleUnfollow () {
-    unFollowUser(_id)
+  function handleUnfollow() {
+    unFollowUser(_id);
   }
 
   function handleFollow() {
-    followUser(_id)
+    followUser(_id);
   }
 
-  function handleLogout () {
-    logoutUser()
+  function handleLogout() {
+    logoutUser();
   }
 
-  function handleEdit () {
-    usersDisptach({type: "SET_IS_EDIT_USER_MODAL", payload: true})
+  function handleEdit() {
+    usersDisptach({ type: "SET_IS_EDIT_USER_MODAL", payload: true });
   }
   return (
-    <div className={isEditUserModal ? "profile-container faded-profile-container " : "profile-container"}>
+    <div className={"profile-container"}>
       <div className="profile-details-container">
-      {isEditUserModal && <EditUserModal userProfile={userProfile}/>}
-
+        {isEditUserModal && <EditUserModal userProfile={userProfile} />}
         <div className="image-buttons-container">
-          <img src={profileAvatar} alt={firstName} className="profile-image"/>
+          <img src={profileAvatar} alt={firstName} className="profile-image" />
           {isUserProfileOfCurrentUser ? (
             <div>
-              <button className="button" onClick={handleEdit}>Edit Profile</button>
-              <button className="button logout" onClick={handleLogout}>Logout</button>
+              <button className="button" onClick={handleEdit}>
+                Edit Profile
+              </button>
+              <button className="button logout" onClick={handleLogout}>
+                Logout
+              </button>
             </div>
           ) : (
             <div>
               {isUserProfileFollowingCurrentUser ? (
-                <button className="button" onClick={handleUnfollow}>Unfollow</button>
+                <button className="button" onClick={handleUnfollow}>
+                  Unfollow
+                </button>
               ) : (
-                <button className="button" onClick={handleFollow}>Follow</button>
+                <button className="button" onClick={handleFollow}>
+                  Follow
+                </button>
               )}
             </div>
           )}

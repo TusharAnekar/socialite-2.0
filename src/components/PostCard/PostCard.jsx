@@ -92,7 +92,7 @@ export function PostCard({ post }) {
       <img
         src={profileAvatar}
         alt={firstName}
-        className="profile-avatar"
+        className="profile-avatar icon"
         onClick={() => navigate(`/profile/${postUser._id}`)}
       />
       <div className="user-details-post-container">
@@ -103,7 +103,7 @@ export function PostCard({ post }) {
             </strong>{" "}
             @{username} {dayjs(createdAt).format("DD/MMM/YY")}
           </p>
-          <MoreHorizIcon onClick={handleShowOptions} />
+          <MoreHorizIcon onClick={handleShowOptions} className="icon"/>
           {showOptionsModal && (
             <div className="options-buttons-container">
               {isPostOfCurrentUser ? (
@@ -135,17 +135,17 @@ export function PostCard({ post }) {
             ))}
         </div>
         <div className="icons-container">
-          <ModeCommentOutlinedIcon />
+          <ModeCommentOutlinedIcon className="icon"/>
           <div>
             <FavoriteTwoToneIcon
-              className={isPostLiked ? "favorite-fill-icon" : ""}
+              className={isPostLiked ? "icon favorite-fill-icon" : "icon"}
               onClick={handleLike}
             />{" "}
             {likeCount}
           </div>
           <BookmarkIcon
             className={
-              isPostInBookmarks ? "bookmark-fill-icon" : "bookmark-unFill-icon"
+              isPostInBookmarks ? "bookmark-fill-icon icon" : "bookmark-unFill-icon icon"
             }
             onClick={handleAddToBookmark}
           />

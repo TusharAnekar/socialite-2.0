@@ -6,7 +6,7 @@ export function EditUserModal({ userProfile }) {
   const { profileAvatar, firstName, lastName, bio, website } = userProfile;
   const [userProfileDetails, setUserProfileDetails] = useState({});
 
-  const {usersState: {isEditUserModal}, usersDisptach, editUserDetails} = useContext(UsersContext)
+  const {usersDisptach, editUserDetails} = useContext(UsersContext)
 
   function handleInput(e) {
     setUserProfileDetails({
