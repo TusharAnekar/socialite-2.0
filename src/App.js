@@ -11,11 +11,27 @@ import { Profile } from "./pages/Profile/Profile";
 import { PostModal } from "./components/PostModal/PostModal";
 import { useContext } from "react";
 import { PostsContext } from "./contexts/posts-context";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const {postsState: {isShowPostModal}} = useContext(PostsContext)
+  const {
+    postsState: { isShowPostModal },
+  } = useContext(PostsContext);
   return (
     <div className="App">
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
