@@ -10,3 +10,20 @@
 .header-container h1 {
     color: var(--primary-color);
 }
+
+.header-container .input-users-container input {
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.header-container .input-users-container {
+    position: relative;
+}
+
+.input-users-container .searched-users-container {
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    background-color: white;
+}

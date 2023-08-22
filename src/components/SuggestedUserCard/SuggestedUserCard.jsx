@@ -1,17 +1,21 @@
 import { useContext } from "react";
 import "./suggestedUserCard.css";
 import { UsersContext } from "../../contexts/users-context";
-export function SuggestedUserCard({ suggestedUser }) {
-  const {_id, firstName, lastName, username, profileAvatar } = suggestedUser;
+import { useNavigate } from "react-router-dom";
+export function SuggestedUserCard({ suggestedUser, isSearchedUser }) {
+  const { _id, firstName, lastName, username, profileAvatar } = suggestedUser;
 
-  const {followUser} = useContext(UsersContext)
+  const { followUser } = useContext(UsersContext);
 
-  function handleFollow () {
-    followUser(_id)
+  const navigate = useNavigate()
+
+  function handleFollow() {
+    followUser(_id);
   }
+  
   return (
     <div className="suggested-user-card-container">
-      <div className="img-user-details-container">
+      <div className="img-user-details-container" onClick={() => navigate(`/profile/${_id}`)}>
         <img src={profileAvatar} alt={firstName} />
         <div>
           <p>
@@ -20,7 +24,11 @@ export function SuggestedUserCard({ suggestedUser }) {
           <p>@{username}</p>
         </div>
       </div>
-      <button className="follow-button" onClick={handleFollow}>Follow</button>
+      {!isSearchedUser && (
+        <button className="follow-button" onClick={handleFollow}>
+          Follow
+        </button>
+      )}
     </div>
   );
 }

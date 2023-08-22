@@ -10,6 +10,7 @@
 .suggested-user-card-container .img-user-details-container {
     display: flex;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .suggested-user-card-container img {

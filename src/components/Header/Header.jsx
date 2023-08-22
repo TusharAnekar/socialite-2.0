@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./header.css";
 import { UsersContext } from "../../contexts/users-context";
+import { SearchedUserModal } from "../SearchedUserModal/SearchedUserModal";
 
 export function Header() {
   const {
@@ -21,9 +22,13 @@ export function Header() {
   return (
     <header className="header-container">
       <h1>Socialite</h1>
-      <div>
+      <div className="input-users-container">
         <input type="text" placeholder="Search users" onChange={handleInput} />
-      
+        <div className="searched-users-container">
+          {searchedUsers?.map((searchedUser) => (
+            <SearchedUserModal searchedUser={searchedUser} />
+          ))}
+        </div>
       </div>
     </header>
   );

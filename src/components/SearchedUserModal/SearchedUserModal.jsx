@@ -1,5 +1,9 @@
-export function SearchedUserModal () {
+import { SuggestedUserCard } from "../SuggestedUserCard/SuggestedUserCard";
+
+export function SearchedUserModal ({searchedUser}) {
     return(
-        <div>asdf</div>
+        <div>
+            <SuggestedUserCard suggestedUser= {searchedUser} isSearchedUser/>
+        </div>
     )
 }
