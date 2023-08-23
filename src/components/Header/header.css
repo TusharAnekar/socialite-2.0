@@ -16,6 +16,8 @@
     padding: 0.5rem;
     font-family: inherit;
     font-size: inherit;
+    width: 40dvw;
+    max-width: 15rem;
 }
 
 .header-container .input-users-container {
