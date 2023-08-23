@@ -5,17 +5,22 @@ import { useNavigate } from "react-router-dom";
 export function SuggestedUserCard({ suggestedUser, isSearchedUser }) {
   const { _id, firstName, lastName, username, profileAvatar } = suggestedUser;
 
-  const { followUser } = useContext(UsersContext);
+  const { followUser, usersDisptach } = useContext(UsersContext);
 
   const navigate = useNavigate()
 
   function handleFollow() {
     followUser(_id);
   }
-  
+
+  function handleProfileView () {
+    usersDisptach({ type: "INPUT_SEARCH", payload: "" });
+    navigate(`/profile/${_id}`)
+  } 
+
   return (
     <div className="suggested-user-card-container">
-      <div className="img-user-details-container" onClick={() => navigate(`/profile/${_id}`)}>
+      <div className="img-user-details-container" onClick={handleProfileView}>
         <img src={profileAvatar} alt={firstName} />
         <div>
           <p>
