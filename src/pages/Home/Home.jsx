@@ -64,7 +64,7 @@ export function Home() {
             value={newPost}
             onChange={handleTextarea}
           ></textarea>
-          <button className="post-button" onClick={handlePost}>
+          <button className="post-button" onClick={handlePost} disabled={!newPost.length}>
             Post
           </button>
         </div>

@@ -44,6 +44,7 @@ export function PostModal() {
           cols="30"
           rows="5"
           placeholder="Something on your mind..."
+          required
           className="textarea"
           onChange={handleInput}
         ></textarea>
