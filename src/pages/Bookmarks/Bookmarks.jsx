@@ -21,9 +21,9 @@ export function Bookmarks() {
   return (
     <div className="bookmarks-container">
       <div className="bookmarks-posts-container">
-        {updatedBookmarks?.map((bookmarkPost) => (
+        {updatedBookmarks?.lenght ? updatedBookmarks?.map((bookmarkPost) => (
           <PostCard post={bookmarkPost} key={bookmarkPost?._id} />
-        ))}
+        )) : <h2>No posts in bookmarks</h2>}
       </div>
       <SuggestedUsers />
     </div>

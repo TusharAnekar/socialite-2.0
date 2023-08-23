@@ -93,9 +93,9 @@ export function Home() {
           </button>
         </div>
         <div>
-          {filteredUserFeedPosts?.map((post) => (
+          {filteredUserFeedPosts?.length ? filteredUserFeedPosts?.map((post) => (
             <PostCard key={post._id} post={post} />
-          ))}
+          )) : <h3>Follow user or write a post to see posts on your feed.</h3>}
         </div>
       </div>
 
