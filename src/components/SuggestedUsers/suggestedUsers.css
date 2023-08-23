@@ -10,5 +10,8 @@
 @media (min-width: 1024px) {
     .suggested-users-container {
         display: block;
+        position: sticky;
+        top: 5rem;
+        height: 88dvh;
     }
 }

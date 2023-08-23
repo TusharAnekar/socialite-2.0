@@ -6,8 +6,6 @@
 .home-container .post-filter-container {
   max-width: 35rem;
   margin: 0 auto;
-  height: 100vh;
-  overflow-y: scroll;
 }
 
 .home-container .post-container {
