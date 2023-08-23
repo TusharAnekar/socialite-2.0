@@ -25,6 +25,10 @@
     justify-content: space-between;
 }
 
+.post-card-container .user-details-container .name-date-container{
+    cursor: pointer;
+}
+
 .post-card-container .icon {
     cursor: pointer;
 }

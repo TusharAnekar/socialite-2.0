@@ -97,7 +97,7 @@ export function PostCard({ post }) {
       />
       <div className="user-details-post-container">
         <div className="user-details-container">
-          <p>
+          <p className="name-date-container" onClick={() => navigate(`/profile/${postUser._id}`)}>
             <strong>
               {firstName} {lastName}
             </strong>{" "}
