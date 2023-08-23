@@ -10,6 +10,7 @@
 
 .header-container h1 {
     color: var(--primary-color);
+    cursor: pointer;
 }
 
 .header-container .input-users-container input {

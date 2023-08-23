@@ -2,8 +2,11 @@ import { useContext } from "react";
 import "./header.css";
 import { UsersContext } from "../../contexts/users-context";
 import { SearchedUserModal } from "../SearchedUserModal/SearchedUserModal";
+import { useNavigate } from "react-router-dom";
 
 export function Header() {
+  const navigate = useNavigate()
+
   const {
     usersState: { allUsers, inputSearch },
     usersDisptach,
@@ -21,7 +24,7 @@ export function Header() {
 
   return (
     <header className="header-container">
-      <h1>Socialite</h1>
+      <h1 onClick={() => navigate("/")}>Socialite</h1>
       <div className="input-users-container">
         <input type="text" placeholder="Search users" onChange={handleInput} />
         <div className="searched-users-container">
