@@ -1,7 +1,12 @@
+.cont-1 {
+    min-height: 100vdh;
+}
+
 @media (min-width: 768px) {
     .cont-1 {
         display: grid;
         grid-template-columns: 6rem 1fr;
+        align-items: flex-start;
     }
     .cont-1 div {
         order: 1;
