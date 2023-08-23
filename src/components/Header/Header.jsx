@@ -26,7 +26,7 @@ export function Header() {
     <header className="header-container">
       <h1 onClick={() => navigate("/")}>Socialite</h1>
       <div className="input-users-container">
-        <input type="text" placeholder="Search users" onChange={handleInput} />
+        <input type="text" placeholder="Search users" value={inputSearch} onChange={handleInput} />
         <div className="searched-users-container">
           {searchedUsers?.map((searchedUser) => (
             <SearchedUserModal searchedUser={searchedUser} />
