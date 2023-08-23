@@ -97,7 +97,7 @@ export function Profile() {
           </p>
           <p>@{username}</p>
           <p>{bio}</p>
-          <NavLink to={website}>{website}</NavLink>
+          <NavLink to={website} target="_blank" rel="noopener norefferrer">{website}</NavLink>
           <div className="following-follower-container">
             <p>
               <strong>{following.length}</strong> Following
