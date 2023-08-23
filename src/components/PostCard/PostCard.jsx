@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import { PostsContext } from "../../contexts/posts-context";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth-context";
+import { toast } from "react-toastify";
 
 export function PostCard({ post }) {
   const [showOptionsModal, setShowOptionsModal] = useState(false);
@@ -87,6 +88,10 @@ export function PostCard({ post }) {
     setShowOptionsModal(false)
   }
 
+  function handleComment () {
+    toast.warning("Feature will be implemented soon")
+  }
+
   return (
     <div className="post-card-container">
       <img
@@ -135,7 +140,7 @@ export function PostCard({ post }) {
             ))}
         </div>
         <div className="icons-container">
-          <ModeCommentOutlinedIcon className="icon"/>
+          <ModeCommentOutlinedIcon className="icon" onClick={handleComment}/>
           <div>
             <FavoriteTwoToneIcon
               className={isPostLiked ? "icon favorite-fill-icon" : "icon"}
