@@ -17,9 +17,9 @@ A social media website where you can connect with your friends!
 
 ---
 
-## LOOM
+## DEMO VIDEO
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/88bfb76742b44246ad0797321b5ec09f?sid=b91369ff-cf94-49ff-9241-d7da3aee3569" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+https://www.loom.com/embed/88bfb76742b44246ad0797321b5ec09f?sid=b91369ff-cf94-49ff-9241-d7da3aee3569">
 
 ## Pages and Features -
 
