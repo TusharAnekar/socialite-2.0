@@ -19,7 +19,7 @@ A social media website where you can connect with your friends!
 
 ## DEMO VIDEO
 
-https://www.loom.com/embed/88bfb76742b44246ad0797321b5ec09f?sid=b91369ff-cf94-49ff-9241-d7da3aee3569">
+https://www.loom.com/embed/88bfb76742b44246ad0797321b5ec09f?sid=b91369ff-cf94-49ff-9241-d7da3aee3569
 
 ## Pages and Features -
 
