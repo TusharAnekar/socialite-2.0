@@ -8,6 +8,8 @@
     border-radius: 1rem;
     width: 80vw;
     max-width: 35rem;
+    z-index: 1;
+    border: 1px solid gray;
 }
 
 .edit-user-modal-container .form-container {
