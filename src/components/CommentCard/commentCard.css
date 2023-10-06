@@ -1,0 +1,75 @@
+.comment-card-container {
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.comment-card-container .img-user-details-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.comment-card-container .user-details-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment-card-container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-card-container .edit-comment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.comment-card-container .edit-comment-container .comment-textarea {
+  resize: none;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.comment-card-container .edit-comment-container .cancel-update {
+  align-self: flex-end;
+  display: flex;
+  gap: 1rem;
+}
+
+.comment-card-container .edit-comment-container .cancel-button {
+  padding: 0.5rem 1rem;
+  color: red;
+  font-family: inherit;
+  border: 1px solid red;
+}
+
+.comment-card-container .edit-comment-container .update-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  font-family: inherit;
+}
+
+.comment-card-container .icons-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.edit-delete-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.comment-card-container .icons-container .icon {
+  cursor: pointer;
+}

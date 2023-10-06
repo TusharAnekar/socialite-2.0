@@ -12,7 +12,8 @@ import { PostModal } from "./components/PostModal/PostModal";
 import { useContext } from "react";
 import { PostsContext } from "./contexts/posts-context";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { PostDetails } from "./pages/PostDetails/PostDetails";
 
 function App() {
   const {
@@ -71,6 +72,16 @@ function App() {
             <RequiresAuth>
               <PageWrapper>
                 <Profile />
+              </PageWrapper>
+            </RequiresAuth>
+          }
+        ></Route>
+        <Route
+          path="/post/:postId"
+          element={
+            <RequiresAuth>
+              <PageWrapper>
+                <PostDetails />
               </PageWrapper>
             </RequiresAuth>
           }

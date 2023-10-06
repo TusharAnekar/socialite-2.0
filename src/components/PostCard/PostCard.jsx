@@ -7,14 +7,16 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import dayjs from "dayjs";
 import { PostsContext } from "../../contexts/posts-context";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth-context";
-import { toast } from "react-toastify";
 
 export function PostCard({ post }) {
   const [showOptionsModal, setShowOptionsModal] = useState(false);
   const { currentUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
+  const location = useLocation();
+
   const { addToBookamarks, removeFromBookamarks, getIsPostInBookmarks } =
     useContext(UsersContext);
   const {
@@ -24,12 +26,20 @@ export function PostCard({ post }) {
     likes: { likeCount },
     username,
     createdAt,
+    comments,
   } = post;
   const {
-    usersState: { allUsers }, unFollowUser, followUser
+    usersState: { allUsers },
+    unFollowUser,
+    followUser,
   } = useContext(UsersContext);
-  const { likePostOfUser, dislikePostOfUser, getIsPostLiked, deletePost, postsDispatch } =
-    useContext(PostsContext);
+  const {
+    likePostOfUser,
+    dislikePostOfUser,
+    getIsPostLiked,
+    deletePost,
+    postsDispatch,
+  } = useContext(PostsContext);
   const postUser = allUsers.find((user) => user.username === username);
   const { firstName, lastName, profileAvatar } = postUser;
 
@@ -69,27 +79,28 @@ export function PostCard({ post }) {
 
   function handleDelete() {
     deletePost(_id);
-    setShowOptionsModal(false)
+    setShowOptionsModal(false);
+    location.pathname.includes("/post/") && navigate("/");
   }
 
-  function handleUnfollow () {
-    unFollowUser(postUser?._id)
-    setShowOptionsModal(false)
+  function handleUnfollow() {
+    unFollowUser(postUser?._id);
+    setShowOptionsModal(false);
   }
 
-  function handleFollow () {
-    followUser(postUser?._id)
-    setShowOptionsModal(false)
+  function handleFollow() {
+    followUser(postUser?._id);
+    setShowOptionsModal(false);
   }
 
-  function handleEdit () {
-    postsDispatch({type: "SET_IS_SHOW_POST_MODAL", payload: true})
-    postsDispatch({type: "POST_TO_BE_EDITED", payload: post})
-    setShowOptionsModal(false)
+  function handleEdit() {
+    postsDispatch({ type: "SET_IS_SHOW_POST_MODAL", payload: true });
+    postsDispatch({ type: "POST_TO_BE_EDITED", payload: post });
+    setShowOptionsModal(false);
   }
 
-  function handleComment () {
-    toast.warning("Feature will be implemented soon")
+  function handleComment() {
+    navigate(`/post/${_id}`);
   }
 
   return (
@@ -102,13 +113,16 @@ export function PostCard({ post }) {
       />
       <div className="user-details-post-container">
         <div className="user-details-container">
-          <p className="name-date-container" onClick={() => navigate(`/profile/${postUser._id}`)}>
+          <p
+            className="name-date-container"
+            onClick={() => navigate(`/profile/${postUser._id}`)}
+          >
             <strong>
               {firstName} {lastName}
             </strong>{" "}
             @{username} {dayjs(createdAt).format("DD/MMM/YY")}
           </p>
-          <MoreHorizIcon onClick={handleShowOptions} className="icon"/>
+          <MoreHorizIcon onClick={handleShowOptions} className="icon" />
           {showOptionsModal && (
             <div className="options-buttons-container">
               {isPostOfCurrentUser ? (
@@ -140,7 +154,10 @@ export function PostCard({ post }) {
             ))}
         </div>
         <div className="icons-container">
-          <ModeCommentOutlinedIcon className="icon" onClick={handleComment}/>
+          <div>
+            <ModeCommentOutlinedIcon className="icon" onClick={handleComment} />
+            {!!comments.length && comments?.length}
+          </div>
           <div>
             <FavoriteTwoToneIcon
               className={isPostLiked ? "icon favorite-fill-icon" : "icon"}
@@ -150,7 +167,9 @@ export function PostCard({ post }) {
           </div>
           <BookmarkIcon
             className={
-              isPostInBookmarks ? "bookmark-fill-icon icon" : "bookmark-unFill-icon icon"
+              isPostInBookmarks
+                ? "bookmark-fill-icon icon"
+                : "bookmark-unFill-icon icon"
             }
             onClick={handleAddToBookmark}
           />
