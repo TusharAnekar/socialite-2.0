@@ -2,11 +2,15 @@ import { NavLink } from "react-router-dom";
 import "./login.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth-context";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 export function Login() {
   const [loginDetails, setLoginDetails] = useState({
     username: "",
     password: "",
   });
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   const { loginHandler } = useContext(AuthContext);
 
@@ -23,9 +27,14 @@ export function Login() {
     setLoginDetails({
       ...loginDetails,
       username: "tusharanekar",
-      password: "tusharanekar123",
+      password: "Tusharanekar123$",
     });
   }
+
+  const handleShowPassword = () => {
+    setIsShowPassword((prev) => !prev);
+  };
+
   return (
     <div className="login-container">
       <h1>Socialite</h1>
@@ -43,16 +52,29 @@ export function Login() {
               onChange={handleInput}
             />
           </label>
-          <label>
+          <label className="login-password">
             Password
             <input
-              type="password"
-              placeholder="*********"
+              type={isShowPassword ? "text" : "password"}
+              placeholder="********"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+              title="Password should contain min 8 charcters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character"
               name="password"
               required
               value={loginDetails.password}
               onChange={handleInput}
             />
+            {isShowPassword ? (
+              <VisibilityOffIcon
+                className="visibility-icon"
+                onClick={handleShowPassword}
+              />
+            ) : (
+              <VisibilityIcon
+                className="visibility-icon"
+                onClick={handleShowPassword}
+              />
+            )}
           </label>
           <button type="submit">Login</button>
           <button className="login-test-button" onClick={handleTestUserLogin}>

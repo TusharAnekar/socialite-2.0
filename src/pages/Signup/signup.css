@@ -1,54 +1,67 @@
 .signup-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup-container h1 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 .signup-container .form-details-container {
-    width: 80vw;
-    max-width: 30rem;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 1rem;
+  width: 80vw;
+  max-width: 30rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .signup-container .form-details-container h2 {
-    text-align: center;
-    margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .signup-container .form-container input {
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.signup-container .login-password {
+  position: relative;
+}
+
+.signup-container .visibility-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
 }
 
 .signup-container .form-container .checkbox-container {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .signup-container .form-container .checkbox-container input {
-    width: fit-content;
-    margin-top: 2px;
+  width: fit-content;
+  margin-top: 2px;
 }
 
 .signup-container .form-container .submit-button {
-    padding: 0.5rem;
-    width: 100%;
-    background-color: var(--primary-color);
-    color: white;
-    margin: 1rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  margin: 1rem 0;
 }
 
 .signup-container .login-link {
-    text-align: center;
+  text-align: center;
 }
