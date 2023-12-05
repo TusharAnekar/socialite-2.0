@@ -10,7 +10,7 @@ export const users = [
     firstName: "Tushar",
     lastName: "Anekar",
     username: "tusharanekar",
-    password: "tusharanekar123",
+    password: "Tusharanekar123$",
     bio: "Aspiring Web Developer | Learning at @neogcamp2023 | Football ⚽ my sport | Continue learning continue evolving.",
     website: "https://tusharanekarportfolio.netlify.app/",
     profileAvatar:
