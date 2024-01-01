@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/auth-context";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { toast } from "react-toastify";
 
 export function Signup() {
   const [signupDetails, setSignupDetails] = useState({
@@ -12,8 +13,10 @@ export function Signup() {
     lastName: "",
     username: "",
     password: "",
+    confirmPassword: "",
   });
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(false);
 
   const { signupHandler } = useContext(AuthContext);
 
@@ -25,9 +28,24 @@ export function Signup() {
     setIsShowPassword((prev) => !prev);
   };
 
+  const handleShowConfirmPassword = () => {
+    setIsShowConfirmPassword((prev) => !prev);
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
-    signupHandler(signupDetails);
+    if (signupDetails.password === signupDetails.confirmPassword) {
+      signupHandler(signupDetails);
+      setSignupDetails({
+        ...signupDetails,
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+      });
+    } else {
+      toast.error("Passwords don't match.");
+    }
   }
 
   const handleDropCopyPaste = (e) => {
@@ -97,6 +115,37 @@ export function Signup() {
               />
             )}
           </label>
+
+          <div>
+            <label className="block login-password">
+              Confirm Password
+              <input
+                type={isShowConfirmPassword ? "text" : "password"}
+                placeholder="********"
+                name="confirmPassword"
+                value={signupDetails.confirmPassword}
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                title="Password should contain min 8 charcters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character"
+                required
+                onChange={handleInput}
+                onPaste={handleDropCopyPaste}
+                onDrop={handleDropCopyPaste}
+                onCopy={handleDropCopyPaste}
+                className="block input"
+              />
+              {isShowConfirmPassword ? (
+                <VisibilityOffIcon
+                  className="visibility-icon"
+                  onClick={handleShowConfirmPassword}
+                />
+              ) : (
+                <VisibilityIcon
+                  className="visibility-icon"
+                  onClick={handleShowConfirmPassword}
+                />
+              )}
+            </label>
+          </div>
           <div className="checkbox-container">
             <input type="checkbox" required />
             <label>I accept all Terms & Conditions</label>
