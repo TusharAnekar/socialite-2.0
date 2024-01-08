@@ -102,6 +102,7 @@ export function Signup() {
               onCopy={handleDropCopyPaste}
               required
               onChange={handleInput}
+              className="password-input"
             />
             {isShowPassword ? (
               <VisibilityOffIcon
@@ -131,7 +132,7 @@ export function Signup() {
                 onPaste={handleDropCopyPaste}
                 onDrop={handleDropCopyPaste}
                 onCopy={handleDropCopyPaste}
-                className="block input"
+                className="block input password-input"
               />
               {isShowConfirmPassword ? (
                 <VisibilityOffIcon

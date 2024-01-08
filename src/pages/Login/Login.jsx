@@ -71,6 +71,7 @@ export function Login() {
               required
               value={loginDetails.password}
               onChange={handleInput}
+              className="password-input"
             />
             {isShowPassword ? (
               <VisibilityOffIcon

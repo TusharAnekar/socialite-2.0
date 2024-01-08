@@ -39,6 +39,10 @@ input {
   margin-bottom: 1rem;
 }
 
+.login-container .form-container .password-input {
+  padding-right: 2.5rem;
+}
+
 .login-container .form-container button {
   width: 100%;
   padding: 0.5rem;
