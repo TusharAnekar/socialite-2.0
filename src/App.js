@@ -14,6 +14,7 @@ import { PostsContext } from "./contexts/posts-context";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PostDetails } from "./pages/PostDetails/PostDetails";
+import { NotFound } from "./pages/NotFound/NotFound";
 
 function App() {
   const {
@@ -82,6 +83,16 @@ function App() {
             <RequiresAuth>
               <PageWrapper>
                 <PostDetails />
+              </PageWrapper>
+            </RequiresAuth>
+          }
+        ></Route>
+        <Route
+          path="*"
+          element={
+            <RequiresAuth>
+              <PageWrapper>
+                <NotFound />
               </PageWrapper>
             </RequiresAuth>
           }

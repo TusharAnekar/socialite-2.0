@@ -1,0 +1,22 @@
+.not-found-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  padding: 2rem;
+}
+
+.not-found-page-container .not-found-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.not-found-page-container .not-found-container .home-link {
+  color: var(--primary-color);
+}
